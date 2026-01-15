@@ -1,3 +1,18 @@
+import { getAllRoles } from "@/lib/data/roles";
+import { getUserResults } from "@/lib/data/users";
+import { rankRoles } from "@/lib/ranking";
+import BreakdownClient from "./_components/BreakdownClient";
+
 export default async function Breakdown() {
-  return <div>Please make the breakdown here for user 24601.</div>;
+  const userId = "24601";
+
+  const results = getUserResults(userId);
+  if (!results) {
+    return <div className="p-10">Results not found</div>;
+  }
+
+  const roles = getAllRoles();
+  const ranked = rankRoles(roles, results);
+
+  return <BreakdownClient userId={userId} ranked={ranked} />;
 }
