@@ -1,7 +1,7 @@
 import { getAllRoles } from "@/lib/data/roles";
 import { getUserResults } from "@/lib/data/users";
 import { rankRoles } from "@/lib/ranking";
-import BreakdownClient from "./_components/BreakdownClient";
+import BreakdownClient from "./BreakdownClient";
 
 export default async function Breakdown() {
   const userId = "24601";

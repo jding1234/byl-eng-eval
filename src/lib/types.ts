@@ -25,8 +25,8 @@ export type Role = {
   role_desc: string;
   core_drive: string;
   most_like_when: string;
-  high_rank_desc: string;
-  low_rank_desc: string;
+  core_rank_desc: string;
+  peripheral_rank_desc: string;
   top_rank_desc: string;
   bottom_rank_desc: string;
 };

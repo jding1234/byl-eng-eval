@@ -71,7 +71,7 @@ export default async function Summary() {
           </div>
 
           <div className="mt-7">
-            <AlignmentStrip ranked={ranked} />
+            <AlignmentStrip ranked={[...ranked].reverse()} />
           </div>
         </div>
 
@@ -186,10 +186,10 @@ function AlignmentStrip({
           const score = Math.round(r.score);
           const tone =
             r.tier === "core"
-              ? "bg-emerald-200"
+              ? "bg-emerald-300"
               : r.tier === "peripheral"
-              ? "bg-rose-200"
-              : "bg-amber-200";
+              ? "bg-rose-300"
+              : "bg-amber-300";
 
           return (
             <div
