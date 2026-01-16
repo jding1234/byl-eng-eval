@@ -47,19 +47,25 @@ export default function BreakdownClient({ ranked }: Props) {
     [ranked, selectedId]
   );
 
+  function handleSelectTier(tier: RoleTier) {
+    const firstInTier = ranked.find((r) => r.tier === tier);
+    if (firstInTier) {
+      setSelectedId(firstInTier.id);
+    }
+  }
   return (
     <div className="min-h-screen bg-[#FBFAF7] text-[#1E1E1E]">
       <div className="mx-auto max-w-5xl px-6 pb-16">
         <div className="pt-8">
           <Link
-            href="/discover"
+            href="/discover/summary"
             className="inline-flex items-center gap-2 rounded-full border border-[#E7E0D6] bg-white px-4 py-2 text-sm shadow-sm hover:bg-[#F6F2EA]"
           >
             <span aria-hidden>‹</span>
             Back to Summary
           </Link>
 
-          <TierTabs tier={selected.tier} />
+          <TierTabs tier={selected.tier} onSelectTier={handleSelectTier} />
         </div>
 
         <RoleCarousel
@@ -107,7 +113,13 @@ function articleFor(word: string) {
   return /^[aeiou]/i.test(word) ? "an" : "a";
 }
 
-function TierTabs({ tier }: { tier: RoleTier }) {
+function TierTabs({
+  tier,
+  onSelectTier,
+}: {
+  tier: RoleTier;
+  onSelectTier: (tier: RoleTier) => void;
+}) {
   const tabs = [
     { key: "core" as const, label: "Core Roles" },
     { key: "moderate" as const, label: "Intermediate Roles" },
@@ -119,14 +131,19 @@ function TierTabs({ tier }: { tier: RoleTier }) {
       {tabs.map((t) => {
         const active = t.key === tier;
         return (
-          <div key={t.key} className="relative pb-2">
-            <span className={active ? "font-medium text-[#1E1E1E]" : ""}>
-              {t.label}
-            </span>
-            {active && (
+          <button
+            key={t.key}
+            onClick={() => onSelectTier(t.key)}
+            className={`relative pb-2 ${
+              tier === t.key ? "font-bold text-[#1E1E1E]" : "text-[#6B7280]"
+            }`}
+          >
+            {t.label}
+
+            {tier === t.key && (
               <span className="absolute bottom-0 left-0 h-[2px] w-full bg-[#1E1E1E]/60" />
             )}
-          </div>
+          </button>
         );
       })}
     </div>

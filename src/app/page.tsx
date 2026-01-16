@@ -25,7 +25,7 @@ export default function Home() {
           </p>
           <div>
             <Link
-              href="/discover"
+              href="/discover/summary"
               className="inline-flex h-12 items-center justify-center rounded-full bg-[#10131a] px-6 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:translate-y-[-2px] hover:bg-black"
             >
               View sample summary

@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 export default function DiscoverNav() {
   const pathname = usePathname();
 
-  const isSummary = pathname === "/discover";
+  const isSummary = pathname === "/discover/summary";
   const isBreakdown = pathname.startsWith("/discover/breakdown");
 
   return (
     <div className="border-b border-[#E7E0D6] bg-[#FBFAF7]">
       <div className="mx-auto flex max-w-5xl items-center gap-10 px-6 py-6 text-sm">
-        <NavLink href="/discover" active={isSummary}>
+        <NavLink href="/discover/summary" active={isSummary}>
           Summary
         </NavLink>
 
@@ -38,7 +38,7 @@ function NavLink({
       href={href}
       className={`relative ${
         active
-          ? "font-medium text-[#1E1E1E]"
+          ? "font-bold text-[#1E1E1E]"
           : "text-[#6B7280] hover:text-[#1E1E1E]"
       }`}
     >
