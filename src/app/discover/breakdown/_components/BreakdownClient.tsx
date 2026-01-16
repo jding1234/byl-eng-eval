@@ -127,25 +127,27 @@ function TierTabs({
   ];
 
   return (
-    <div className="mt-8 flex gap-12 text-sm text-[#6B7280]">
-      {tabs.map((t) => {
-        const active = t.key === tier;
-        return (
-          <button
-            key={t.key}
-            onClick={() => onSelectTier(t.key)}
-            className={`relative pb-2 ${
-              tier === t.key ? "font-bold text-[#1E1E1E]" : "text-[#6B7280]"
-            }`}
-          >
-            {t.label}
+    <div className="max-w-[500px] border-b border-[#E7E0D6] bg-[#FBFAF7]">
+      <div className="mx-1 mt-8 flex gap-12 text-sm text-[#6B7280] ">
+        {tabs.map((t) => {
+          const active = t.key === tier;
+          return (
+            <button
+              key={t.key}
+              onClick={() => onSelectTier(t.key)}
+              className={`relative pb-2 ${
+                tier === t.key ? "font-bold text-[#1E1E1E]" : "text-[#6B7280]"
+              }`}
+            >
+              {t.label}
 
-            {tier === t.key && (
-              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-[#1E1E1E]/60" />
-            )}
-          </button>
-        );
-      })}
+              {tier === t.key && (
+                <span className="absolute bottom-0 left-0 h-[2px] w-full bg-[#1E1E1E]/60" />
+              )}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -405,7 +407,7 @@ function RoleAlignmentBlock({ role }: { role: RankedRole }) {
           </div>
 
           {/* Gradient Bar */}
-          <div className="relative h-24 rounded-3xl overflow-visible">
+          <div className="relative h-22 rounded-3xl overflow-visible">
             {/* Background gradient - full meter from red to yellow to green */}
             <div
               className="absolute -top-2 right-0 bottom-0 left-0 rounded-3xl opacity-50"

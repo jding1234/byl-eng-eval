@@ -10,8 +10,8 @@ export default function DiscoverNav() {
   const isBreakdown = pathname.startsWith("/discover/breakdown");
 
   return (
-    <div className="border-b border-[#E7E0D6] bg-[#FBFAF7]">
-      <div className="mx-auto flex max-w-5xl items-center gap-10 px-6 py-6 text-sm">
+    <div className="max-w-[970px] mx-auto border-b border-[#E7E0D6] bg-[#FBFAF7]">
+      <div className="mx-auto flex max-w-[970px] items-center gap-10  pt-6 pb-2 text-sm">
         <NavLink href="/discover/summary" active={isSummary}>
           Summary
         </NavLink>
