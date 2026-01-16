@@ -358,7 +358,7 @@ function RoleAlignmentBlock({ role }: { role: RankedRole }) {
     ? "Understanding Your High Role Alignment"
     : role.tier === "peripheral"
     ? "Understanding Your Low Role Alignment"
-    : "Understanding Your Role Alignment";
+    : "";
 
   function getRankDesc(r: {
     isHighest: boolean;

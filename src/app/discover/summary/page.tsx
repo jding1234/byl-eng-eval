@@ -186,10 +186,10 @@ function AlignmentStrip({
           const score = Math.round(r.score);
           const tone =
             r.tier === "core"
-              ? "bg-emerald-100/60"
+              ? "bg-emerald-200"
               : r.tier === "peripheral"
-              ? "bg-rose-100/60"
-              : "bg-amber-100/70";
+              ? "bg-rose-200"
+              : "bg-amber-200";
 
           return (
             <div
@@ -248,9 +248,12 @@ function RoleCard({
           </div>
         </div>
 
-        <div className="grid h-12 w-12 place-items-center rounded-full border border-[#1E1E1E]/10 bg-white">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/roles/${r.id}.svg`} alt="" className="h-6 w-6" />
+        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full border border-[#1E1E1E]/10 bg-white">
+          <img
+            src={`/roles/${r.id}.svg`}
+            alt={`${r.role.name} icon`}
+            className="h-16 w-16"
+          />
         </div>
       </div>
 
